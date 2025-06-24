@@ -1,0 +1,186 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff0f6;
+  overflow-x: hidden;
+}
+
+/* Small floating hearts background */
+.hearts-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+
+  --heart-color: #e91e63;
+
+  background:
+    radial-gradient(circle 6px at 10% 90%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 4px at 20% 70%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 5px at 30% 80%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 4px at 40% 75%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 6px at 50% 85%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 5px at 60% 90%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 4px at 70% 70%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 6px at 80% 75%, var(--heart-color) 99%, transparent 100%),
+    radial-gradient(circle 5px at 90% 80%, var(--heart-color) 99%, transparent 100%);
+  
+  animation: floatHearts 12s linear infinite;
+}
+
+@keyframes floatHearts {
+  0% {
+    background-position:
+      10% 100%, 20% 100%, 30% 100%, 40% 100%, 50% 100%, 60% 100%, 70% 100%, 80% 100%, 90% 100%;
+  }
+  100% {
+    background-position:
+      10% -20%, 20% -10%, 30% -15%, 40% -25%, 50% -20%, 60% -30%, 70% -10%, 80% -15%, 90% -20%;
+  }
+}
+
+/* Big heart behind container */
+.big-heart {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 180px;
+  color: #e91e63;
+  opacity: 0.1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 0;
+  filter: drop-shadow(0 0 8px #d81b60);
+}
+
+/* Main container centered */
+.container {
+  position: relative;
+  max-width: 640px;
+  margin: 40px auto;
+  padding: 30px 20px;
+  background: white;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+  border-radius: 20px;
+  text-align: center;
+  z-index: 1;
+  color: #333;
+  backdrop-filter: blur(8px);
+}
+
+/* Play music button */
+.play-button {
+  padding: 14px 36px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg, #e91e63, #c2185b);
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 8px 16px rgba(233, 30, 99, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
+  margin-bottom: 30px;
+  max-width: 80%;
+  width: fit-content;
+}
+
+.play-button:hover {
+  background: linear-gradient(135deg, #c2185b, #880e4f);
+  box-shadow: 0 12px 24px rgba(194, 24, 91, 0.6);
+  transform: scale(1.05);
+}
+
+.play-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 6px 12px rgba(194, 24, 91, 0.4);
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #d81b60;
+}
+
+/* Responsive and pretty gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.photo-card {
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  width: 160px;
+  height: 160px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  background: white;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* Zoom on hover */
+.photo-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.2);
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
+}
+
+.footer {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #e91e63;
+}
+
+/* Hide the audio element fully */
+audio {
+  display: none;
+}
+.poem {
+  background: #fff5fa;
+  padding: 25px;
+  border-radius: 16px;
+  margin-bottom: 30px;
+  box-shadow: 0 6px 18px rgba(233, 30, 99, 0.1);
+  color: #880e4f;
+  font-family: 'Georgia', serif;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.poem h2 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  font-size: 1.8rem;
+  color: #d81b60;
+}
+
+.poem-date {
+  font-style: italic;
+  color: #c2185b;
+  margin-top: 20px;
+  font-size: 1rem;
+}
